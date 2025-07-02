@@ -1,6 +1,8 @@
 import BiographyHeader from "@/components/BiographyHeader";
 import BiographyContent from "@/components/BiographyContent";
 import CommentsSection from "@/components/CommentsSection";
+import AdBanner from "@/components/AdBanner";
+import AdSidebar from "@/components/AdSidebar";
 
 const Index = () => {
   const biographyData = {
@@ -23,10 +25,39 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <BiographyHeader {...biographyData} />
-        <BiographyContent content={biographyContent} />
-        <CommentsSection />
+      {/* Верхний рекламный баннер */}
+      <div className="w-full bg-white border-b border-gray-200 py-2">
+        <div className="max-w-6xl mx-auto px-4">
+          <AdBanner type="horizontal" size="large" className="w-full" />
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex gap-8">
+          {/* Основной контент */}
+          <div className="flex-1 max-w-4xl">
+            <BiographyHeader {...biographyData} />
+
+            {/* Реклама между заголовком и контентом */}
+            <div className="mb-8">
+              <AdBanner type="horizontal" size="medium" />
+            </div>
+
+            <BiographyContent content={biographyContent} />
+
+            {/* Реклама перед комментариями */}
+            <div className="mb-8">
+              <AdBanner type="horizontal" size="medium" />
+            </div>
+
+            <CommentsSection />
+          </div>
+
+          {/* Боковая панель с рекламой */}
+          <div className="hidden lg:block">
+            <AdSidebar />
+          </div>
+        </div>
       </div>
     </div>
   );
