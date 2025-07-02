@@ -1,11 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import BiographyHeader from "@/components/BiographyHeader";
+import BiographyContent from "@/components/BiographyContent";
+import CommentsSection from "@/components/CommentsSection";
 
 const Index = () => {
+  const biographyData = {
+    name: "Стив Джобс",
+    title: "Сооснователь Apple Inc., визионер технологий",
+    birthYear: "1955",
+    deathYear: "2011",
+    imageUrl: "/placeholder.svg",
+  };
+
+  const biographyContent = [
+    "Стивен Пол Джобс родился 24 февраля 1955 года в Сан-Франциско, Калифорния. Он был усыновлен Полом и Кларой Джобс, которые дали ему имя и воспитали как собственного сына. С детства Стив проявлял интерес к электронике и технологиям, часто проводя время в гараже отца, где изучал различные устройства.",
+
+    "В 1976 году, в возрасте 21 года, Джобс вместе со своим другом Стивом Возняком основал компанию Apple Computer в гараже семьи Джобс. Их первый продукт, Apple I, стал началом революции в области персональных компьютеров. Джобс обладал уникальным видением того, как технологии должны выглядеть и работать, что впоследствии изменило весь мир.",
+
+    "После временного ухода из Apple в 1985 году, Джобс основал компанию NeXT и приобрел студию Pixar. Его возвращение в Apple в 1997 году ознаменовало начало новой эры для компании. Под его руководством были созданы революционные продукты: iMac, iPod, iPhone и iPad, которые навсегда изменили индустрию технологий.",
+
+    "Стив Джобс скончался 5 октября 2011 года в возрасте 56 лет после длительной борьбы с раком поджелудочной железы. Его наследие продолжает влиять на мир технологий и дизайна. Он остается символом инноваций, перфекционизма и стремления изменить мир к лучшему.",
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <BiographyHeader {...biographyData} />
+        <BiographyContent content={biographyContent} />
+        <CommentsSection />
       </div>
     </div>
   );
